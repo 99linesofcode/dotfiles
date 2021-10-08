@@ -1,0 +1,65 @@
+{
+  "diffEditor.renderSideBySide": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.fixAll.markdownlint": true
+  },
+  "editor.cursorBlinking": "smooth",
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "relative",
+  "editor.lineHeight": 30,
+  "explorer.openEditors.visible": 0,
+  "editor.quickSuggestions": {
+    "comments": true
+  },
+  "editor.quickSuggestionsDelay": 0,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80, 120, 160],
+  "editor.tabSize": 2,
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  "emmet.triggerExpansionOnTab": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.workingDirectories": ["./nuxt"],
+  "extensions.ignoreRecommendations": false,
+  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
+  "files.exclude": {
+    ".git": false
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "intelephense.format.enable": true,
+  "php.suggest.basic": false,
+  "php.validate.enable": false,
+  "php-cs-fixer.config": "${workspaceFolder}/api/.php_cs",
+  "php-cs-fixer.lastDownload": 1633052538880,
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.rules": "@PSR12",
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "storage/framework/views": true
+  },
+  "stylelint.enable": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.inheritEnv": true,
+  "vim.leader": "<space>",
+  "vim.useCtrlKeys": false,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Hybrid Next (Gray Background)",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
+  }
+}
