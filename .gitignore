@@ -1,2 +1,9 @@
+# VSCode
+!.vscode/
+
+# VSCode Patch - Ignore all local history of files
+**/.history
+
+# SSH
 .ssh/*
 !.ssh/config
