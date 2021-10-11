@@ -10,7 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(ssh-agent git autojump colorize colored-man-pages docker-compose history)
+plugins=(autojump colorize colored-man-pages docker-compose git history ssh-agent)
 ZSH_THEME=juanghurtado 
 COMPLETION_WAITING_DOTS="true"
 
@@ -20,7 +20,7 @@ unsetopt beep
 # Oh-My-Zsh plugins
 # -----------------------------------------------------------------------------
 
-zstyle :omz:plugins:ssh-agent identities blade_github_rsa blade_gitlab_ed25519 blade_digitalocean_rsa
+zstyle :omz:plugins:ssh-agent lazy yes
 
 if [[ -s /usr/share/autojump/autojump.sh ]]; then
   . /usr/share/autojump/autojump.sh
