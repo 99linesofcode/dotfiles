@@ -1,9 +1,7 @@
 {
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
+    "source.fixAll": true,
   },
   "editor.cursorBlinking": "smooth",
   "editor.detectIndentation": false,
@@ -33,11 +31,11 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "intelephense.format.enable": true,
-  "php.suggest.basic": false,
-  "php.validate.enable": false,
-  "php-cs-fixer.config": "${workspaceFolder}/api/.php_cs",
-  "php-cs-fixer.lastDownload": 1633052538880,
+  // PHP intelephense is used for its language server. Not formatting.
+  "intelephense.environment.documentRoot": "${workspaceFolder}/api/public",
+  "intelephense.format.enable": false,
+  // we use php-cs-fixer for its built-in PHP archive and ability to read .php_cs
+  "php-cs-fixer.config":"${workspaceFolder}/api/.php_cs" ,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "php-cs-fixer.rules": "@PSR12",
   "search.useIgnoreFiles": false,
@@ -47,10 +45,9 @@
     "storage/framework/views": true
   },
   "stylelint.enable": true,
-  "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.inheritEnv": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.leader": "<space>",
   "vim.useCtrlKeys": false,
   "workbench.sideBar.location": "right",
