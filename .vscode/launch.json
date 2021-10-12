@@ -10,8 +10,9 @@
       "request": "launch",
       "port": 9000,
       "pathMappings": {
-          "/config/www": "${workspaceFolder}/api"
-      }
+        "/config/www": "${workspaceFolder}/api"
+      },
+      "hostname": "localhost",
     },
     {
       "name": "Launch currently open script",
