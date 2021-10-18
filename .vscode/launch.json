@@ -10,7 +10,7 @@
       "request": "launch",
       "port": 9000,
       "pathMappings": {
-        "/config/www": "${workspaceFolder}/api"
+        "/var/www/html/api": "${workspaceFolder}/api"
       },
       "hostname": "localhost",
     },
