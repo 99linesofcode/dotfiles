@@ -15,3 +15,9 @@ alias gtrack='git branch -u origin/$(current_branch)'
 
 alias ls="ls -GFh --color=auto"
 alias ctags="ctags -R --exclude=@.ctagsignore ."
+
+# -----------------------------------------------------------------------------
+# Development
+# -----------------------------------------------------------------------------
+
+alias sail="./vendor/bin/sail"
