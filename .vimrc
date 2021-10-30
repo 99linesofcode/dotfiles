@@ -79,6 +79,7 @@ set smartindent                                                                "
 set splitbelow                                                                 " split to bottom
 set splitright                                                                 " vsplit to the right
 set tabstop=2                                                                  " number of spaces a <TAB> in text stands for
+set textwidth=80                                                               " maximum width of text being inserted
 set visualbell                                                                 " visualbell instead of beeping
 set t_vb=                                                                      " visualbell character to display, nothing
 set updatetime=300                                                             " improve experience with diagnostic messages #neoclide/coc.nvim
