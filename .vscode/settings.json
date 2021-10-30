@@ -1,12 +1,15 @@
 {
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
+    "source.sortImports": true,
     "source.fixAll": true,
   },
   "editor.cursorBlinking": "smooth",
   "editor.detectIndentation": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
+  "editor.guides.bracketPairs": true,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "relative",
   "editor.lineHeight": 30,
@@ -16,17 +19,33 @@
   },
   "editor.quickSuggestionsDelay": 0,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 120, 160],
+  "editor.rulers": [
+    80,
+    120,
+    160
+  ],
   "editor.tabSize": 2,
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "emmet.triggerExpansionOnTab": true,
-  "eslint.alwaysShowStatus": true,
-  "eslint.workingDirectories": ["./nuxt"],
+  "eslint.validate": [
+    "vue",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "eslint.workingDirectories": [
+    "${workspaceFolder}/nuxt",
+  ],
   "extensions.ignoreRecommendations": false,
   "files.autoSave": "afterDelay",
+  "files.associations": {
+    "*.blade.php": "html",
+    "*.php-cs": "php"
+  },
   "files.eol": "\n",
   "files.exclude": {
-    ".git": false
+    ".git": false,
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -34,15 +53,42 @@
   // PHP intelephense is used for its language server. Not formatting.
   "intelephense.environment.documentRoot": "${workspaceFolder}/api/public",
   "intelephense.format.enable": false,
-  // we use php-cs-fixer for its built-in PHP archive and ability to read .php_cs
-  "php-cs-fixer.config":"${workspaceFolder}/api/.php_cs" ,
-  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.rules": "@PSR12",
+  "intelephense.files.exclude": [
+    "**/.git",
+    // JavaScript
+    "**/.husky",
+    "**/.nuxt",
+    "**/nuxt",
+    // PHP
+    "**/_ide_helper.php",
+    "**/_ide_helper_models.php",
+    // Laravel
+    "**/storage",
+    "**/database/migrations",
+    // Miscellaneous
+    "*.sql",
+  ],
+  "intelephense.files.maxSize": 5000000,
+  // Use for formatting and code style checking using it's bundled PHP archive (phar)
+  "php-cs-fixer.config": "${workspaceFolder}/api/.php-cs-fixer.php; ${workspaceFolder}/api/.php-cs",
+  "php-docblocker.returnGap": true,
+  "php-docblocker.qualifyClassNames": true,
+  "remote.containers.executeInWSL": true,
   "search.useIgnoreFiles": false,
   "search.exclude": {
     "**/.git": true,
-    "**/node_modules": true,
-    "storage/framework/views": true
+    // JavaScript
+    "**/.husky": true,
+    "**/.nuxt": true,
+    "**/package-lock.json": true,
+    // PHP
+    "**/composer.lock": true,
+    "**/_ide_helper.php": true,
+    "**/_ide_helper_models.php": true,
+    "**/public": true,
+    // laravel
+    "**/storage": true,
+    "**/database/migrations/**": true,
   },
   "stylelint.enable": true,
   "telemetry.enableTelemetry": false,
@@ -53,10 +99,7 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Hybrid Next (Gray Background)",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  }
+  },
 }
