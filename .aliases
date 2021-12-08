@@ -20,4 +20,6 @@ alias ctags="ctags -R --exclude=@.ctagsignore ."
 # Development
 # -----------------------------------------------------------------------------
 
+alias fly="docker-compose"
 alias sail="./vendor/bin/sail"
+alias dup="cd docker && fly up -d && cd ../nuxt && npm run dev"
