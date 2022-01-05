@@ -9,12 +9,13 @@
 [push]
   default = current
 [alias]
-  co = checkout
   br = branch
   ci = commit
-  st = status
-  sla = log --oneline --decorate --graph --all
+  co = checkout
+  fix = commit --fixup
   pufowile = push --force-with-lease
+  sla = log --oneline --decorate --graph --all
+  st = status
 [core]
   editor = vim
   excludesfile = ~/dotfiles/.gitignore_global
