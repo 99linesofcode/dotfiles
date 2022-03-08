@@ -1,12 +1,12 @@
 {
+  // "blade.format.enable": true,
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
-    "source.sortImports": true,
     "source.fixAll": true,
   },
   "editor.cursorBlinking": "smooth",
-  "editor.detectIndentation": false,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.guides.bracketPairs": true,
@@ -27,6 +27,10 @@
   "editor.tabSize": 2,
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "blade": "html",
+    "vue-html": "html"
+  },
   "eslint.validate": [
     "vue",
     "javascript",
@@ -40,7 +44,6 @@
   "extensions.ignoreRecommendations": false,
   "files.autoSave": "afterDelay",
   "files.associations": {
-    "*.blade.php": "html",
     "*.php-cs": "php"
   },
   "files.eol": "\n",
@@ -70,7 +73,7 @@
   ],
   "intelephense.files.maxSize": 5000000,
   // Use for formatting and code style checking using it's bundled PHP archive (phar)
-  "php-cs-fixer.config": "${workspaceFolder}/api/.php-cs-fixer.php; ${workspaceFolder}/api/.php-cs",
+  "php-cs-fixer.config": "${workspaceFolder}/api/php-cs-fixer.php; ${workspaceFolder}/api/.php-cs-fixer.dist.php; ${workspaceFolder}/api/.php_cs; ${workspaceFolder}/api/.php_cs.dist",
   "php-docblocker.returnGap": true,
   "php-docblocker.qualifyClassNames": true,
   "remote.containers.executeInWSL": true,
@@ -86,19 +89,29 @@
     "**/_ide_helper.php": true,
     "**/_ide_helper_models.php": true,
     "**/public": true,
-    // laravel
+    "**/vendor": true,
+    "**/vendor/webeau": false,
+    // laravel/
     "**/storage": true,
     "**/database/migrations/**": true,
   },
   "stylelint.enable": true,
+  "stylelint.configFile": "${workspaceFolder}/nuxt/stylelint.config.js",
+  "scss.lint.unknownAtRules": "ignore",
   "telemetry.enableTelemetry": false,
   "terminal.integrated.inheritEnv": true,
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.format.enable": false,
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "vetur.validation.interpolation": false,
   "vim.leader": "<space>",
   "vim.useCtrlKeys": false,
+  "workbench.colorTheme": "Hybrid Next (Gray Background)",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Hybrid Next (Gray Background)",
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
