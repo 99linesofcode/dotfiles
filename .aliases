@@ -21,6 +21,8 @@ alias ctags="ctags -R --exclude=@.ctagsignore ."
 # -----------------------------------------------------------------------------
 
 alias fly="docker-compose"
+alias dup="cd ./docker && fly up -d && cd ../nuxt && npm run dev"
+alias flex="cd ./docker && fly exec -w /config/www/api app bash"
+
 alias sail="./vendor/bin/sail"
-alias dup="cd docker && fly up -d && cd ../nuxt && npm run dev"
 alias sup="cd api && sail up -d && cd ../nuxt && npm run dev"
