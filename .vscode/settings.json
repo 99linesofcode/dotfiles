@@ -5,7 +5,6 @@
     "source.fixAll": true,
   },
   "editor.cursorBlinking": "smooth",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
@@ -114,5 +113,8 @@
   "workbench.startupEditor": "none",
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
+  },
+  "[javascript][typescript][vue][json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
 }
