@@ -1,5 +1,4 @@
 {
-  // "blade.format.enable": true,
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
@@ -24,7 +23,6 @@
     160
   ],
   "editor.tabSize": 2,
-  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "blade": "html",
@@ -34,17 +32,13 @@
   "eslint.validate": [
     "vue",
     "javascript",
-    "javascriptreact",
     "typescript",
-    "typescriptreact",
   ],
   "eslint.workingDirectories": [
     "${workspaceFolder}/nuxt",
   ],
   "extensions.ignoreRecommendations": false,
-  "files.autoSave": "afterDelay",
   "files.associations": {
-    "*.json": "json",
     "*.php-cs": "php",
   },
   "files.eol": "\n",
@@ -71,8 +65,9 @@
   "php-cs-fixer.config": "${workspaceFolder}/api/php-cs-fixer.php; ${workspaceFolder}/api/.php-cs-fixer.dist.php; ${workspaceFolder}/api/.php_cs; ${workspaceFolder}/api/.php_cs.dist",
   "php-docblocker.returnGap": true,
   "php-docblocker.qualifyClassNames": true,
-  "remote.containers.executeInWSL": true,
   "search.useIgnoreFiles": false,
+  // TODO: update when proper support for glob patterns is released
+  // See: https://github.com/microsoft/vscode/issues/134415 and related
   "search.exclude": {
     "**/composer.lock": true,
     "**/database": true,
@@ -84,15 +79,11 @@
     "**/.nuxt": true,
     "**/package-lock.json": true,
     "**/public": true,
-    "**/storage/{[^l]*,?[^o]*,??[^g]*,???[^s]*}": true,
     "**/vendor": true,
-    "**/vendor/{[^w]*,?[^e]*,??[^b]*,???[^e]*,????[^a]*,?????[^u]*}": true,
   },
   "stylelint.enable": true,
   "stylelint.configFile": "${workspaceFolder}/nuxt/stylelint.config.js",
   "scss.lint.unknownAtRules": "ignore",
-  "telemetry.enableTelemetry": false,
-  "terminal.integrated.inheritEnv": true,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.format.enable": false,
@@ -108,7 +99,7 @@
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
-  "[json][javascript][typescript][vue]": {
+  "[json][jsonc][javascript][typescript][vue]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
 }
