@@ -88,8 +88,8 @@ void setup() {
     kaleidoscope::plugin::Qukey(1, KeyAddr(1, 11), LSHIFT(Key_0)),
   )
   Qukeys.setHoldTimeout(200);
-  Qukeys.setOverlapThreshold(1);
-  Qukeys.setMinimumHoldTime(1);
+  Qukeys.setOverlapThreshold(80);
+  Qukeys.setMinimumHoldTime(50);
   Qukeys.setMinimumPriorInterval(1);
   Qukeys.activate();
 
