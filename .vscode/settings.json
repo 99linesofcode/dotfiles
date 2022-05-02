@@ -108,7 +108,7 @@
   "php-docblocker.returnGap": true,
   "php-docblocker.qualifyClassNames": true,
   "search.useIgnoreFiles": false,
-  // TODO: update when proper support for glob patterns is released
+  // TODO update when proper support for glob patterns is released
   // See: https://github.com/microsoft/vscode/issues/134415 and related
   "search.exclude": {
     "**/composer.lock": true,
