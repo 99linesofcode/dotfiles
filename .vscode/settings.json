@@ -3,6 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
   },
+  "editor.bracketPairColorization.enabled": false,
   "editor.cursorBlinking": "smooth",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
