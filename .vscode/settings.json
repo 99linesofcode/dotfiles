@@ -98,6 +98,7 @@
   "vim.camelCaseMotion.enable": true,
   "vim.leader": "<space>",
   "vim.sneak": true,
+  "window.zoomLevel": -1,
   "workbench.colorTheme": "Hybrid Next (Gray Background)",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
