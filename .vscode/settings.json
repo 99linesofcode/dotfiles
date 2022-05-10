@@ -1,43 +1,4 @@
 {
-  "dash.languageIdToDocsetMap": {
-    "cpp": [
-      "cpp",
-      "net",
-      "boost",
-      "cvcpp",
-      "cocos2dx",
-      "c",
-      "manpages"
-    ],
-    "javascript": [
-      "javascript",
-      "prototype",
-      "lodash",
-      "nodejs",
-      "moment",
-      "awsjs",
-      "sinon",
-      "html",
-      "css",
-      "unity3d"
-    ],
-    "php": [
-      "php",
-      "laravel",
-      "phpunit",
-      "phpp",
-      "html",
-      "mysql",
-      "sqlite",
-      "mongodb",
-      "psql",
-      "redis"
-    ],
-    "typescript": [
-      "typescript",
-      "javascript"
-    ],
-  },
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
