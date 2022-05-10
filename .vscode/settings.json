@@ -7,7 +7,7 @@
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairs": "active",
   "editor.insertSpaces": true,
   "editor.lineNumbers": "relative",
   "editor.lineHeight": 30,
