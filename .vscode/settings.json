@@ -73,17 +73,16 @@
   // See: https://github.com/microsoft/vscode/issues/134415 and related
   "search.exclude": {
     "**/composer.lock": true,
-    "**/database": true,
-    "**/.git": true,
-    "**/.husky": true,
     "**/_ide_helper.php": true,
     "**/_ide_helper_models.php": true,
-    "**/node_modules": true,
-    "**/.nuxt": true,
     "**/package-lock.json": true,
-    "**/public": true,
-    "**/vendor": true,
-    "**/api/storage/debugbar": true
+    "**/.git/**": true,
+    "**/.husky/**": true,
+    "**/.nuxt/**": true,
+    "**/storage/**": true,
+    "**/node_modules/**/node_modules/**": true,
+    "**/vendor/**/{Tests,tests}/**": true,
+    "**/vendor/**/vendor/**": true
   },
   "stylelint.enable": true,
   "stylelint.configFile": "${workspaceFolder}/nuxt/stylelint.config.js",
