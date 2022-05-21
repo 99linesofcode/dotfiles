@@ -101,10 +101,13 @@
   "workbench.colorTheme": "Hybrid Next (Gray Background)",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
+  "[javascript][typescript][vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  },
-  "[json][jsonc][javascript][typescript][vue]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
 }
