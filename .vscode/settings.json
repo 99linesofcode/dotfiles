@@ -85,8 +85,6 @@
     "**/vendor/**/{Tests,tests}/**": true,
     "**/vendor/**/vendor/**": true
   },
-  "stylelint.enable": true,
-  "stylelint.configFile": "${workspaceFolder}/nuxt/stylelint.config.js",
   "scss.lint.unknownAtRules": "ignore",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vetur.experimental.templateInterpolationService": true,
