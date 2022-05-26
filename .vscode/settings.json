@@ -25,10 +25,10 @@
     160
   ],
   "editor.tabSize": 2,
-  "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "blade": "html",
-    "vue-html": "html"
+    "vue": "html",
+    "vue-html": "html",
   },
   "eslint.format.enable": true,
   "eslint.validate": [
