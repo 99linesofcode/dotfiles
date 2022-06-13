@@ -37,7 +37,9 @@
     "typescript",
   ],
   "eslint.workingDirectories": [
-    "${workspaceFolder}/nuxt",
+    "./api",
+    "./nuxt",
+    "./src",
   ],
   "extensions.ignoreRecommendations": false,
   "files.associations": {

@@ -49,3 +49,9 @@ source $HOME/.aliases
 
 unalias gm
 
+bindkey -e
+# Ctrl + Backspace
+bindkey '^H' backward-kill-word
+# Ctrl + Arrows
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
