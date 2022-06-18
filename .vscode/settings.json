@@ -16,14 +16,14 @@
   "editor.lineHeight": 30,
   "explorer.openEditors.visible": 0,
   "editor.quickSuggestions": {
-    "comments": true
+    "comments": true,
   },
   "editor.quickSuggestionsDelay": 0,
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     80,
     120,
-    160
+    160,
   ],
   "editor.tabSize": 2,
   "emmet.includeLanguages": {
@@ -57,7 +57,7 @@
     "**/database/migrations/**",
     "**/node_modules/**",
     "**/vendor/**/{Tests,tests}/**",
-    "**/vendor/**/vendor/**"
+    "**/vendor/**/vendor/**",
   ],
   "intelephense.environment.documentRoot": "${workspaceFolder}/api/public",
   "intelephense.telemetry.enabled": false,
@@ -89,8 +89,9 @@
     "css",
     "less",
     "postcss",
-    "vue"
+    "vue",
   ],
+  "tailwindCSS.emmetCompletions": true,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": "<space>",
@@ -100,12 +101,12 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "[javascript][typescript][vue]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   },
   "[json][jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[php]": {
-    "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
   },
 }
