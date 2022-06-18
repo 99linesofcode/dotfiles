@@ -27,3 +27,13 @@ alias flex="cd ./docker && fly exec -w /config/www/api app bash"
 
 alias sail="./vendor/bin/sail"
 alias sup="cd api && sail up -d && cd ../nuxt && npm run dev"
+
+function sailcomposer() {
+  docker run --rm -u '$(id -u):$(id -g)' \
+    -v '$HOME/.config/composer/auth.json:/var/www/html/auth.json' \
+    -v $SSH_AUTH_SOCK:/tmp/ssh-auth.sock \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    -e SSH_AUTH_SOCK=/tmp/ssh-auth.sock \
+    laravelsail/php81-composer:latest composer install --ignore-platform-reqs
+}
