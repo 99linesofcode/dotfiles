@@ -1,4 +1,5 @@
 {
+  "css.validate": false,
   "debug.allowBreakpointsEverywhere": true,
   "diffEditor.renderSideBySide": true,
   "editor.codeActionsOnSave": {
@@ -65,12 +66,14 @@
   ],
   "intelephense.environment.documentRoot": "${workspaceFolder}/api/public",
   "intelephense.telemetry.enabled": false,
+  "less.validate": false,
   "outline.showProperties": false,
   "outline.showVariables": false,
   "outline.showFunctions": false,
   "php-cs-fixer.config": "${workspaceFolder}/api/php-cs-fixer.php; ${workspaceFolder}/api/.php-cs-fixer.dist.php; ${workspaceFolder}/api/.php_cs; ${workspaceFolder}/api/.php_cs.dist",
   "php-docblocker.returnGap": true,
   "php-docblocker.qualifyClassNames": true,
+  "scss.validate": false,
   "search.useIgnoreFiles": false,
   // TODO update when proper support for glob patterns is released
   // See: https://github.com/microsoft/vscode/issues/134415 and related
@@ -87,7 +90,12 @@
     "**/vendor/**/{Tests,tests}/**": true,
     "**/vendor/**/vendor/**": true
   },
-  "scss.lint.unknownAtRules": "ignore",
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue"
+  ],
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": "<space>",
