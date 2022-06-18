@@ -37,11 +37,6 @@
     "javascript",
     "typescript",
   ],
-  "eslint.workingDirectories": [
-    "./api",
-    "./nuxt",
-    "./src",
-  ],
   "extensions.ignoreRecommendations": false,
   "files.associations": {
     "*.php-cs": "php",
