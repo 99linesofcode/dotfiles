@@ -6,9 +6,16 @@ alias zrc="vim ~/.zshrc"
 # -----------------------------------------------------------------------------
 
 alias gl="git sl"
-alias gcfix="git fix"
-alias pb="git checkout master && git fetch && git remote prune origin && git branch --merged master | grep -v 'master\|accept\|staging$' | xargs git branch -d"
-alias gtrack='git branch -u origin/$(current_branch)'
+alias gfix="git fix"
+
+function gpb() {
+  TARGET=${1-"main"}
+
+  git checkout $TARGET \
+  git fetch \
+  git remote prune origin \
+  git branch --merged $TARGET | grep -v '$TARGET$' | xargs git branch -d
+}
 
 # -----------------------------------------------------------------------------
 # System default overrides
