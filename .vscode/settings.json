@@ -37,7 +37,7 @@
     "javascript",
     "typescript",
   ],
-  "extensions.ignoreRecommendations": false,
+  "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.php-cs": "php",
   },
