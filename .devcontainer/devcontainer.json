@@ -1,0 +1,31 @@
+// https://aka.ms/devcontainer.json
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": [
+    "../api/docker-compose.yml"
+  ],
+  "service": "laravel.test",
+  "workspaceFolder": "/var/www/html",
+  "settings": {
+    "php-cs-fixer.config": "${containerWorkspaceFolder}/api/.php-cs-fixer.dist.php",
+    "php-cs-fixer.executablePath": "${containerWorkspaceFolder}/api/vendor/bin/php-cs-fixer",
+  },
+  "extensions": [
+    "bmewburn.vscode-intelephense-client",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "junstyle.php-cs-fixer",
+    "mikestead.dotenv",
+    "neilbrayfield.php-docblocker",
+    "stylelint.vscode-stylelint",
+    "Vue.volar"
+    // "amiralizadeh9480.laravel-extra-intellisense",
+    // "ryannaddy.laravel-artisan",
+    // "onecentlin.laravel5-snippets",
+    // "onecentlin.laravel-blade"
+  ],
+  "remoteUser": "sail"
+  // "forwardPorts": [],
+  // "runServices": [],
+  // "shutdownAction": "none",
+}
