@@ -65,7 +65,6 @@
   "outline.showProperties": false,
   "outline.showVariables": false,
   "outline.showFunctions": false,
-  "php-cs-fixer.config": "${workspaceFolder}/api/php-cs-fixer.php; ${workspaceFolder}/api/.php-cs-fixer.dist.php; ${workspaceFolder}/api/.php_cs; ${workspaceFolder}/api/.php_cs.dist",
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "php-cs-fixer.lastDownload": 1658868881834,
   "php-docblocker.returnGap": true,
