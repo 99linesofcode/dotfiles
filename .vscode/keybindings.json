@@ -1,6 +1,6 @@
 [
   {
-    "key": "ctrl+shift+e",
+    "key": "ctrl+b",
     "command": "workbench.action.toggleSidebarVisibility"
   }
 ]
