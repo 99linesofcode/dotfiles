@@ -127,6 +127,7 @@
     "REVIEW",
   ],
   "vim.camelCaseMotion.enable": true,
+  "vim.gdefault": true,
   "vim.leader": "<space>",
   "vim.sneak": true,
   "window.zoomLevel": -1,
