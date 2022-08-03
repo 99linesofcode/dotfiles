@@ -96,6 +96,36 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.inheritEnv": true,
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "todo-tree.tree.autoRefresh": true,
+  "todo-tree.highlights.customHighlight": {
+    "WARN": {
+      "foreground": "#000",
+      "background": "#ffcc00",
+      "iconColour": "#ffcc00",
+      "icon": "alert",
+    },
+    "TODO": {
+      "foreground": "#000",
+      "background": "#ccff74",
+      "iconColour": "#ccff74",
+      "icon": "check-circle",
+    },
+    "FIXME": {
+      "foreground": "#000",
+      "background": "#ff5f5f",
+      "iconColour": "#ff5f5f",
+      "icon": "flame"
+    },
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "text-and-comment"
+  },
+  "todo-tree.general.tags": [
+    "TODO",
+    "WARN",
+    "FIXME",
+    "REVIEW",
+  ],
   "vim.camelCaseMotion.enable": true,
   "vim.leader": "<space>",
   "vim.sneak": true,
