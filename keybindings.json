@@ -1,3 +1,6 @@
 [
-  { "key": "ctrl+shift+a",  "command": "wwm.aligncode", "when": "editorTextFocus && !editorReadonly" }
+  {
+    "key": "ctrl+shift+e",
+    "command": "workbench.action.toggleSidebarVisibility"
+  }
 ]
