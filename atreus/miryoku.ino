@@ -1,6 +1,7 @@
 // -*- mode: c++ -*-
 
 #include "Kaleidoscope.h"
+#include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-Qukeys.h"
 
 #define MO(n) ShiftToLayer(n)
@@ -15,7 +16,7 @@
 #define Key_Ampersand LSHIFT(Key_7)
 #define Key_Star LSHIFT(Key_8)
 #define Key_Plus LSHIFT(Key_Equals)
-#define Key_Redo LCTRL(Y)
+#define Key_Redo LCTRL(Key_Y)
 
 #define Key_LeftParen LSHIFT(Key_9)
 #define Key_RightParen LSHIFT(Key_0)
@@ -31,93 +32,126 @@
 enum
 {
   PRIMARY,
-  SECONDARY
+  NAV,
+  MOUSE,
+  BUTTON,
+  MEDIA,
+  NUM,
+  SYM,
+  FUN
 };
 
+// clang-format off
 KEYMAPS(
-    [PRIMARY] = KEYMAP_STACKED(
-        Key_Q, Key_W, Key_F, Key_P, Key_B,
-        Key_A, Key_R, Key_S, Key_T, Key_G,
-        Key_Z, Key_X, Key_C, Key_D, Key_v, ___,
-        Key_Enter, ___, ___, Key_Capslock, Key_Space, Key_Tab,
+    [PRIMARY] = KEYMAP_STACKED
+    (
+        Key_Q, Key_W, Key_E, Key_R, Key_T,
+        Key_A, Key_S, Key_D, Key_F, Key_G,
+        Key_Z, Key_X, Key_C, Key_V, Key_B, ___,
+        Key_Enter, ___, ___, Key_CapsLock, Key_Space, Key_Tab,
 
-        Key_J, Key_L, Key_U, Key_Y, Key_Quote,
-        Key_M, Key_N, Key_E, Key_I, Key_O,
-        ___, Key_K, Key_H, Key_Comma, Key_Period, Key_Slash,
-        Key_Backspace, Key_Space, Key_Delete, ___, ___, Key_Enter),
-    [NAV] = KEYMAP_STACKED(
+        Key_Y, Key_U, Key_I, Key_O, Key_P,
+        Key_H, Key_J, Key_K, Key_L, Key_Semicolon,
+        ___, Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,
+        Key_Backspace, Key_Space, Key_Delete, ___, ___, Key_Enter
+    ),
+
+    [NAV] = KEYMAP_STACKED
+    (
         ___, ___, ___, ___, ___,
-        Key_LeftGui, Key_LeftAlt, Key_LeftCtrl, Key_LeftShift, ___,
+        Key_LeftGui, Key_LeftAlt, Key_LeftControl, Key_LeftShift, ___,
         ___, ___, ___, ___, ___, ___,
         ___, ___, ___, ___, ___, ___,
 
         Key_Redo, Key_Paste, Key_Copy, Key_Cut, Key_Undo,
         Key_Esc, Key_LeftArrow, Key_DownArrow, Key_UpArrow, Key_RightArrow,
         ___, Key_Insert, Key_Home, Key_PageDown, Key_PageUp, Key_End,
-        Key_Backspace, Key_Space, Key_Delete, ___, ___, ___),
-    [MOUSE] = KEYMAP_STACKED(
+        Key_Backspace, Key_Space, Key_Delete, ___, ___, ___
+    ),
+
+    [MOUSE] = KEYMAP_STACKED
+    (
         ___, ___, ___, ___, ___,
-        Key_LeftGui, Key_LeftAlt, Key_LeftCtrl, Key_LeftShift, ___,
+        Key_LeftGui, Key_LeftAlt, Key_LeftControl, Key_LeftShift, ___,
         ___, ___, ___, ___, ___, ___,
         ___, ___, ___, ___, ___, ___,
 
         Key_Redo, Key_Paste, Key_Copy, Key_Cut, Key_Undo,
         ___, Key_LeftArrow, Key_DownArrow, Key_UpArrow, Key_RightArrow,
         ___, ___, ___, ___, ___, ___,
-        Key_mouseBtnR, Key_mouseBtnL, Key_mouseBtnM, ___, ___, ___),
-    [BUTTON] = KEYMAP_STACKED(
+        ___, ___, ___, ___, ___, ___
+    ),
+
+    [BUTTON] = KEYMAP_STACKED
+    (
         Key_Undo, Key_Cut, Key_Copy, Key_Paste, Key_Redo,
-        Key_LeftGui, Key_LeftAlt, Key_LeftCtrl, Key_LeftShift, ___,
+        Key_LeftGui, Key_LeftAlt, Key_LeftControl, Key_LeftShift, ___,
         Key_Undo, Key_Cut, Key_Copy, Key_Paste, Key_Redo, ___,
-        ___, ___, ___, Key_mouseBtnL, Key_mouseBtnM, Key_mouseBtnR,
+        ___, ___, ___, ___, ___, ___,
 
         Key_Redo, Key_Paste, Key_Copy, Key_Cut, Key_Undo,
-        ___, Key_RightShift, Key_RightCtrl, Key_RightAlt, Key_RightGui,
+        ___, Key_RightShift, Key_RightControl, Key_RightAlt, Key_RightGui,
         ___, Key_Redo, Key_Paste, Key_Copy, Key_Cut, Key_Undo,
-        Key_mouseBtnR, Key_mouseBtnL, Key_mouseBtnM, ___, ___, ___),
-    [MEDIA] = KEYMAP_STACKED(
+        ___, ___, ___, ___, ___, ___
+    ),
+
+    [MEDIA] = KEYMAP_STACKED
+    (
         ___, ___, ___, ___, ___,
-        Key_LeftGui, Key_LeftAlt, Key_LeftCtrl, Key_LeftShift, ___,
+        Key_LeftGui, Key_LeftAlt, Key_LeftControl, Key_LeftShift, ___,
         ___, ___, ___, ___, ___, ___,
         ___, ___, ___, ___, ___, ___,
 
         ___, ___, ___, ___, ___,
         ___, ___, Key_VolumeDown, Key_VolumeUp, ___,
         ___, ___, ___, ___, ___, ___,
-        Key_Stop, Key_Pause, Key_Mute, ___, ___, ___),
-    [NUM] = KEYMAP_STACKED(
+        Key_Stop, Key_Pause, Key_Mute, ___, ___, ___
+    ),
+
+    [NUM] = KEYMAP_STACKED
+    (
         Key_LeftBracket, Key_7, Key_8, Key_9, Key_RightBracket,
         Key_Semicolon, Key_4, Key_5, Key_6, Key_Equals,
         Key_Backtick, Key_1, Key_2, Key_3, Key_Backslash, ___,
         ___, ___, ___, Key_Period, Key_0, Key_Minus,
 
         ___, ___, ___, ___, ___,
-        ___, Key_RightShift, Key_RightCtrl, Key_RightAlt, Key_RightGui,
+        ___, Key_RightShift, Key_RightControl, Key_RightAlt, Key_RightGui,
         ___, ___, ___, ___, ___, ___,
-        ___, ___, ___, ___, ___, ___),
-    [SYM] = KEYMAP_STACKED(
-        Key_LeftBracket, Key_Ampersand, Key_Star, Key_Left, Key_RightCurly,
+        ___, ___, ___, ___, ___, ___
+    ),
+
+    [SYM] = KEYMAP_STACKED
+    (
+        Key_LeftBracket, Key_Ampersand, Key_Star, Key_LeftCurly, Key_RightCurly,
         Key_Colon, Key_Dollar, Key_Percent, Key_Caret, Key_Equals,
-        Key_Tilde, Key_Exclaimation, Key_At, Key_Pound, Key_Pipe, ___,
+        Key_Tilde, Key_Exclamation, Key_At, Key_Pound, Key_Pipe, ___,
         ___, ___, ___, Key_LeftParen, Key_RightParen, Key_Underscore,
 
         ___, ___, ___, ___, ___,
-        ___, Key_RightShift, Key_RightCtrl, Key_RightAlt, Key_RightGui,
+        ___, Key_RightShift, Key_RightControl, Key_RightAlt, Key_RightGui,
         ___, ___, ___, ___, ___, ___,
-        ___, ___, ___, ___, ___, ___),
-    [FUN] = KEYMAP_STACKED(
+        ___, ___, ___, ___, ___, ___
+    ),
+
+    [FUN] = KEYMAP_STACKED
+    (
         Key_F12, Key_F7, Key_F8, Key_F9, Key_PrintScreen,
         Key_F11, Key_F4, Key_F5, Key_F6, Key_ScrollLock,
         Key_F10, Key_F1, Key_F2, Key_F3, ___, ___,
         ___, ___, ___, ___, ___, ___,
 
         ___, ___, ___, ___, ___,
-        ___, Key_RightShift, Key_RightCtrl, Key_RightAlt, Key_RightGui,
+        ___, Key_RightShift, Key_RightControl, Key_RightAlt, Key_RightGui,
         ___, ___, ___, ___, ___, ___,
-        ___, ___, ___, ___, ___, ___))
+        ___, ___, ___, ___, ___, ___
+    )
+)
+// clang-format on
 
-KALEIDOSCOPE_INIT_PLUGINS(Qukeys);
-l void setup()
+KALEIDOSCOPE_INIT_PLUGINS(MouseKeys, Qukeys);
+
+void setup()
 {
   QUKEYS(
       kaleidoscope::plugin::Qukey(0, KeyAddr(1, 0), Key_LeftGui),
