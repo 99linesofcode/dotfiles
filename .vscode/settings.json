@@ -90,6 +90,7 @@
     "**/.git/**": true,
     "**/.husky/**": true,
     "**/.nuxt/**": true,
+    "**/.output/**": true,
     "**/storage/**": true,
     "**/node_modules/**/node_modules/**": true,
     "**/vendor/**/{Tests,tests}/**": true,
