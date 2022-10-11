@@ -5,22 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Listen for XDebug",
+      "name": "Listen for Sail XDebug",
       "type": "php",
       "request": "launch",
-      "port": 9000,
+      "port": 9003,
       "pathMappings": {
         "/var/www/html/api": "${workspaceFolder}/api"
       },
       "hostname": "localhost",
     },
-    {
-      "name": "Launch currently open script",
-      "type": "php",
-      "request": "launch",
-      "program": "${file}",
-      "cwd": "${fileDirname}",
-      "port": 9000
-    }
   ]
 }
