@@ -30,8 +30,11 @@
     "vue.volar",
     "xdebug.php-debug"
   ],
-  "remoteUser": "sail"
-  // "forwardPorts": [],
-  // "runServices": [],
-  // "shutdownAction": "none",
+  "remoteUser": "sail",
+  "portsAttributes": {
+    "9003": {
+      "label": "Xdebug",
+      "onAutoForward": "silent"
+    }
+  }
 }
