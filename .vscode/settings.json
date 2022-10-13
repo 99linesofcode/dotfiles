@@ -11,9 +11,6 @@
   "css.validate": false,
   "debug.allowBreakpointsEverywhere": true,
   "diffEditor.renderSideBySide": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-  },
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorBlinking": "smooth",
   "editor.detectIndentation": false,
