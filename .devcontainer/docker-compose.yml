@@ -16,6 +16,7 @@ services:
       - NUXT_PORT=${FORWARD_NODE_PORT:-3000}
     volumes:
       - '../nuxt:/var/www/html/nuxt'
+      - 'node_modules:/var/www/html/nuxt/node_modules'
     command: "npm run dev"
     healthcheck:
       test:
