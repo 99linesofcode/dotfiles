@@ -1,0 +1,155 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+
+services:
+  node:
+    container_name: ${APP_NAME}.node
+    image: 'node:${NODE_VERSION}-alpine'
+    user: node
+    working_dir: '/var/www/html/nuxt'
+    ports:
+      - '${FORWARD_NODE_PORT:-3000}:3000'
+      - '${FORWARD_VITE_PORT:-24678}:24678'
+    environment:
+      - NODE_ENV=${APP_ENV}
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=${FORWARD_NODE_PORT:-3000}
+    volumes:
+      - '../nuxt:/var/www/html/nuxt'
+    command: "npm run dev"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--spider",
+          "http://localhost:3000"
+        ]
+      retries: 3
+      timeout: 5s
+    depends_on:
+      - laravel.test
+
+  # TODO convert to dedicated PHP container so we can use a setup that is nearly identical to production.
+  laravel.test:
+    container_name: ${APP_NAME}.app
+    build:
+      context: ./docker/8.0
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: '${NODE_VERSION}'
+        WWWGROUP: '${WWWGROUP}'
+    image: sail-8.0/app
+    working_dir: '/var/www/html/api'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '${APP_PORT:-80}:80'
+      - '${FORWARD_VITE_PORT:-24678}:24678'
+    environment:
+      WWWUSER: '${WWWUSER}'
+      LARAVEL_SAIL: 1
+      XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+      XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+    volumes:
+      - '..:/var/www/html'
+    depends_on:
+      - mysql
+      - redis
+      - meilisearch
+      # - selenium
+
+  mysql:
+    container_name: ${APP_NAME}.mysql
+    image: 'mysql/mysql-server:8.0'
+    ports:
+      - '${FORWARD_DB_PORT:-3306}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - 'sail-mysql:/var/lib/mysql'
+      - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
+      retries: 3
+      timeout: 5s
+
+  redis:
+    container_name: ${APP_NAME}.redis
+    image: 'redis:alpine'
+    ports:
+      - '${FORWARD_REDIS_PORT:-6379}:6379'
+    volumes:
+      - 'sail-redis:/data'
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      retries: 3
+      timeout: 5s
+
+  meilisearch:
+    container_name: ${APP_NAME}.meilisearch
+    image: 'getmeili/meilisearch:v0.28.1'
+    ports:
+      - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
+    volumes:
+      - 'sail-meilisearch:/meili_data'
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--spider",
+          "http://localhost:7700/health"
+        ]
+      retries: 3
+      timeout: 5s
+
+  mailhog:
+    container_name: ${APP_NAME}.mailhog
+    image: 'mailhog/mailhog:latest'
+    ports:
+      - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+      - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+
+  # selenium:
+  #   container_name: ${APP_NAME}.selenium
+  #   image: 'selenium/standalone-chrome'
+  #   volumes:
+  #     - '/dev/shm:/dev/shm'
+
+  phpmyadmin:
+    container_name: ${APP_NAME}.phpmyadmin
+    image: phpmyadmin:latest
+    links:
+      - mysql
+    environment:
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      PMA_HOST: '${APP_NAME}.mysql'
+      PMA_PMADB: 'pmadb'
+      UPLOAD_LIMIT: 256M
+    ports:
+      - '${FORWARD_PHPMYADMIN_PORT:-8888}:80'
+
+networks:
+  default:
+    name: '${APP_NAME}.net.sail'
+    driver: bridge
+
+volumes:
+  sail-mysql:
+    name: '${APP_NAME}.vol.mysql'
+    driver: local
+  sail-redis:
+    name: '${APP_NAME}.vol.redis'
+    driver: local
+  sail-meilisearch:
+    name: '${APP_NAME}.vol.meilisearch'
+    driver: local
