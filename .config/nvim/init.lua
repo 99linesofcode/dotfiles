@@ -47,6 +47,14 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
+  -- colorscheme
+  use {
+    'RRethy/nvim-base16',
+    config = function()
+      vim.cmd('colorscheme base16-tomorrow-night')
+    end
+  }
+
   -- Git
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -59,17 +67,18 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-sleuth'
 
-  use {
-    'RRethy/nvim-base16',
-    config = function()
-      vim.cmd('colorscheme base16-tomorrow-night')
-    end
-  }
-
   -- Fuzzy Finder
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    tag = 'nightly'
+  }
 
   if is_bootstrap then
     require('packer').sync()
@@ -132,6 +141,20 @@ vim.keymap.set("n", "n", "nzzzv");
 vim.keymap.set("n", "N", "Nzzzv");
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Configure nvim-tree.lua
+-- see `:help nvim-tree-setup`
+require("nvim-tree").setup({
+  open_on_setup = true,
+  open_on_setup_file = true,
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
