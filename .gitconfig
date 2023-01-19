@@ -27,4 +27,4 @@
 [diff]
   submodule = log
 [init]
-	defaultBranch = main
+  defaultBranch = main
