@@ -45,7 +45,7 @@ export PATH="$(yarn global bin):$PATH"
 # -----------------------------------------------------------------------------
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
+source $HOME/aliases
 
 unalias gm
 

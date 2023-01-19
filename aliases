@@ -1,5 +1,4 @@
-alias vrc="vim ~/.vimrc"
-alias zrc="vim ~/.zshrc"
+alias vrc="vim ~/.config/nvim/init.lua"
 
 # -----------------------------------------------------------------------------
 # GIT
@@ -35,16 +34,3 @@ alias flex="cd ./docker && fly exec -w /config/www/api app bash"
 alias sail="./vendor/bin/sail"
 alias sup="cd api && sail up -d && cd ../nuxt && npm run dev"
 
-function sailcomposer() {
-  VERSION=${1-80}
-  COMMAND=${2-"install --ignore-platform-reqs"}
-
-  docker run --rm \
-    -u '1000:1000' \
-    -v '/home/jordy/.config/composer/auth.json:/var/www/html/auth.json' \
-    -v $SSH_AUTH_SOCK:/tmp/ssh-auth.sock \
-    -v $(pwd):/var/www/html \
-    -w /var/www/html \
-    -e SSH_AUTH_SOCK=/tmp/ssh-auth.sock \
-    laravelsail/php$VERSION-composer:latest composer $COMMAND
-}
