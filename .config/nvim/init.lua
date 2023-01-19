@@ -69,9 +69,9 @@ require('packer').startup(function(use)
 
   --  Autopairs
   use {
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
     config = function ()
-      require("nvim-autopairs").setup()
+      require('nvim-autopairs').setup()
     end
   }
 
@@ -88,13 +88,7 @@ require('packer').startup(function(use)
     cond = vim.fn.executable 'make' == 1
   }
 
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    tag = 'nightly'
-  }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
 
   if is_bootstrap then
     require('packer').sync()
@@ -117,8 +111,8 @@ end
 -- Vim settings
 vim.opt.autoindent = true
 vim.opt.backup = false
-vim.opt.backspace = "indent,eol,start"
-vim.opt.colorcolumn = "80"
+vim.opt.backspace = 'indent,eol,start'
+vim.opt.colorcolumn = '80'
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.hlsearch = false
@@ -140,37 +134,24 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
 vim.opt.updatetime = 300
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.wildmenu = true
-vim.opt.wildmode = "longest:list,full"
-vim.opt.wildignore:append "*/.git/*,*.swp"
+vim.opt.wildmode = 'longest:list,full'
+vim.opt.wildignore:append '*/.git/*,*.swp'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.g.mapleader = " ";
-
-vim.keymap.set("n", "<C-d>", "<C-d>zz");
-vim.keymap.set("n", "<C-u>", "<C-u>zz");
-vim.keymap.set("n", "n", "nzzzv");
-vim.keymap.set("n", "N", "Nzzzv");
+vim.g.mapleader = ' ';
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Configure nvim-tree.lua
--- see `:help nvim-tree-setup`
-require("nvim-tree").setup({
-  open_on_setup = true,
-  open_on_setup_file = true,
-  sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
+vim.keymap.set('n', '<C-d>', '<C-d>zz');
+vim.keymap.set('n', '<C-u>', '<C-u>zz');
+vim.keymap.set('n', 'n', 'nzzzv');
+vim.keymap.set('n', 'N', 'Nzzzv');
+
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
@@ -191,7 +172,7 @@ require('Comment').setup()
 require('indent_blankline').setup {
   char = '┊',
   show_trailing_blankline_indent = false,
-  space_char_blankline = " ",
+  space_char_blankline = ' ',
 }
 
 -- Configure Telescope
@@ -226,6 +207,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser, { desc = '[F]ile [B]rowser'});
 
 -- Configure Treesitter
 -- See `:help nvim-treesitter`
@@ -393,12 +375,12 @@ mason_lspconfig.setup_handlers {
 require('fidget').setup()
 
 -- nvim-cmp setup
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
 -- Auto pairs
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done { map_char = { tex = '' } })
 
 cmp.setup {
   snippet = {
