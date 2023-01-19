@@ -59,12 +59,12 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
 
-  -- Miscelleaneous
+  -- Miscelleaneous 
   use 'nvim-lualine/lualine.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
   use 'mbbill/undotree'
-  use 'tpope/vim-surround'
+  use 'kylechui/nvim-surround'
   use 'tpope/vim-sleuth'
 
   -- Fuzzy Finder
