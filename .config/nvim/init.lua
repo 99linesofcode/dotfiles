@@ -67,10 +67,26 @@ require('packer').startup(function(use)
   use 'kylechui/nvim-surround'
   use 'tpope/vim-sleuth'
 
+  --  Autopairs
+  use {
+    "windwp/nvim-autopairs",
+    config = function ()
+      require("nvim-autopairs").setup()
+    end
+  }
+
   -- Fuzzy Finder
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    cond = vim.fn.executable 'make' == 1
+  }
 
   use {
     'nvim-tree/nvim-tree.lua',
@@ -376,8 +392,12 @@ mason_lspconfig.setup_handlers {
 require('fidget').setup()
 
 -- nvim-cmp setup
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+
+-- Auto pairs
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 cmp.setup {
   snippet = {
