@@ -5,12 +5,21 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:$PATH"
 
 # -----------------------------------------------------------------------------
-# Zsh and Oh-My-Zsh
+# Zsh
 # -----------------------------------------------------------------------------
 
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(autojump colorize colored-man-pages docker-compose git history ssh-agent)
+plugins=(colorize
+  colored-man-pages
+  composer
+  docker-compose
+  git
+  history
+  laravel
+  rails
+  ssh-agent
+)
 ZSH_THEME=juanghurtado 
 COMPLETION_WAITING_DOTS="true"
 
@@ -21,10 +30,6 @@ unsetopt beep
 # -----------------------------------------------------------------------------
 
 zstyle :omz:plugins:ssh-agent lazy yes
-
-if [[ -s /usr/share/autojump/autojump.sh ]]; then
-  . /usr/share/autojump/autojump.sh
-fi
 
 # -----------------------------------------------------------------------------
 # Programming Environments
@@ -37,21 +42,31 @@ if command -v nodenv 1>/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
 
-# yarn
-export PATH="$(yarn global bin):$PATH"
-
 # -----------------------------------------------------------------------------
 # Post Setup
 # -----------------------------------------------------------------------------
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/aliases
 
-unalias gm
+# -----------------------------------------------------------------------------
+# Aliases
+# -----------------------------------------------------------------------------
 
-bindkey -e
-# Ctrl + Backspace
-bindkey '^H' backward-kill-word
-# Ctrl + Arrows
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+alias vrc="vim ~/.config/nvim/init.lua"
+
+# System defaults
+alias ls="ls -GFh --color=auto"
+
+# Git
+alias gl="git sl"
+alias gfix="git fix"
+
+function gpb() {
+  TARGET=${1-"main"}
+
+  git checkout $TARGET \
+  git fetch \
+  git remote prune origin \
+  git branch --merged $TARGET | grep -v '$TARGET$' | xargs git branch -d
+}
+
