@@ -1,9 +1,7 @@
 {
   "name": "devcontainer.json",
-  "dockerComposeFile": [
-    "../api/docker-compose.yml"
-  ],
-  "service": "laravel.test",
+  "dockerComposeFile": "../api/docker-compose.yml",
+  "service": "devcontainer",
   "workspaceFolder": "/var/www/html",
   "settings": {
     "terminal.integrated.profiles.linux": {
@@ -25,12 +23,12 @@
     "junstyle.php-cs-fixer",
     "mikestead.dotenv",
     "ms-azuretools.vscode-docker",
+    "naumovs.color-highlight",
     "neilbrayfield.php-docblocker",
     "stylelint.vscode-stylelint",
     "vue.volar",
     "xdebug.php-debug"
   ],
-  "remoteUser": "sail",
   "portsAttributes": {
     "9003": {
       "label": "Xdebug",
