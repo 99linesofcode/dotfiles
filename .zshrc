@@ -35,6 +35,10 @@ zstyle :omz:plugins:ssh-agent lazy yes
 # Programming Environments
 # -----------------------------------------------------------------------------
 
+# Enable these in a rootless docker environment such as your server
+# export PATH=/config/bin:$PATH 
+# export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 
