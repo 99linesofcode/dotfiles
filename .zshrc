@@ -31,7 +31,7 @@ unsetopt beep
 # Oh-My-Zsh plugins
 # -----------------------------------------------------------------------------
 
-zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent identities blade_github_rsa blade_digitalocean_rsa blade_gitlab_ed25519
 
 # -----------------------------------------------------------------------------
 # Programming Environments
