@@ -10,7 +10,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(colorize
+plugins=(
+  asdf
+  colorize
   colored-man-pages
   composer
   docker-compose
@@ -39,12 +41,6 @@ zstyle :omz:plugins:ssh-agent lazy yes
 # export PATH=/config/bin:$PATH 
 # export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-
-if command -v nodenv 1>/dev/null 2>&1; then
-  eval "$(nodenv init -)"
-fi
 
 # -----------------------------------------------------------------------------
 # Post Setup
