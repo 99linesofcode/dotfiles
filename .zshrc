@@ -28,7 +28,7 @@ ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
 
 
-zstyle :omz:plugins:ssh-agent identities blade_github_rsa blade_digitalocean_rsa blade_gitlab_ed25519
+zstyle :omz:plugins:ssh-agent identities blade_github_ed25519 blade_digitalocean_rsa blade_gitlab_ed25519
 
 # -----------------------------------------------------------------------------
 # Post Setup
