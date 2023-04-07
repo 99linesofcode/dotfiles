@@ -1,11 +1,11 @@
-LTO_ENABLE = yes            # Link Time Optimization
+LTO_ENABLE = yes            # Link Time Optimization reduces compiled bin size
 
-MOUSEKEY_ENABLE = yes       # Enable Mouse Keys
+MOUSEKEY_ENABLE = yes       # Enable Mouse Key buttons
 EXTRAKEY_ENABLE = yes       # Enable Audio and System control
-NKRO_ENABLE = yes           # Enable N-Key Rollover
-CONSOLE_ENABLE = yes        # Enable debug console output
+NKRO_ENABLE = yes           # Enable sending more than 6 keys to the host OS
+CONSOLE_ENABLE = yes        # Simplify debugging by outputting to QMK console
 CAPS_WORD_ENABLE = yes      # Enable Caps Word
-BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
-RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
-
-UNICODE_ENABLE = yes        # Basic Unicode support
+COMMAND_ENABLE = no         # Disable Command in order to use DOUBLE_SHIFT_TURNS_ON_CAPS_WORD
+BACKLIGHT_ENABLE = no       # Keyboardio Atreus has no backlighting
+RGBLIGHT_ENABLE = no        # Keyboardio Atreus has no RGB
+UNICODE_ENABLE = no         # No need to support unicode keys for now
