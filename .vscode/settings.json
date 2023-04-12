@@ -107,6 +107,5 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "editor.accessibilitySupport": "off",
-  "window.zoomLevel": -1,
   "git.ignoreMissingGitWarning": true,
 }
