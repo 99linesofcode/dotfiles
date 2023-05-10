@@ -2,21 +2,21 @@
 
 cd $HOME/dotfiles
 
-if which zsh > /dev/null 2>&1; then
-  sudo chsh -s $(which zsh)
+if which zsh >/dev/null 2>&1; then
+	sudo chsh -s $(which zsh)
 else
-  echo "Zsh has not been installed yet."
+	echo "Zsh has not been installed yet."
 fi
 
 mkdir -p \
-  $HOME/.config \
-  $HOME/.local/bin \
-  $HOME/.local/share \
-  $HOME/.local/state
+	$HOME/.config \
+	$HOME/.local/bin \
+	$HOME/.local/share \
+	$HOME/.local/state
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null 2>&1
-  rm $HOME/.zshrc
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null 2>&1
+	rm $HOME/.zshrc
 fi
 
 ln -sf $PWD/.asdfrc $HOME/.asdfrc
