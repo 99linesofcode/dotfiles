@@ -27,5 +27,14 @@ ln -sf $PWD/.ssh $HOME/.ssh
 ln -sf $PWD/.zshrc $HOME/.zshrc
 
 if [ ! -d "$HOME/.asdf" ]; then
-  git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+	git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+fi
+
+source $HOME/.asdf/asdf.sh
+
+if [ ! -d "$HOME/.asdf/shims/nvim" ]; then
+	asdf plugin add neovim https://github.com/richin13/asdf-neovim.git
+	asdf install neovim nightly
+	asdf global neovim nightly
+	ln -sf $HOME/.asdf/shims/nvim $HOME/.local/bin/vim
 fi
