@@ -1,7 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# This is accidentally omitted on debian based operating systems
+# This directory is accidentally omitted on debian based operating systems
 export PATH="$HOME/.local/bin:$PATH"
 
 # -----------------------------------------------------------------------------
@@ -51,14 +51,7 @@ alias ls="ls -GFh --color=auto"
 alias gl="git sl"
 alias gfix="git fix"
 
-
-# laravel
-alias a="artisan"
-alias tinker="artisan tinker"
-
-# mrsk
-alias mrsk="docker run -it --rm -v $PWD:/workdir -v $HOME/.gitconfig:/root/.gitconfig -v $SSH_AUTH_SOCK:/ssh-agent -v /var/run/docker.sock:/var/run/docker.sock -e SSH_AUTH_SOCK=/ssh-agent ghcr.io/99linesofcode/mrsk:latest"
-
+# function to automatically prune branches both locally and remote
 function gpb() {
   local TARGET=${1-"main"}
 
@@ -67,3 +60,21 @@ function gpb() {
   git remote prune origin
   git branch --merged $TARGET | grep -v $TARGET | xargs --no-run-if-empty git branch -d
 }
+
+# laravel
+alias a="artisan"
+alias tinker="artisan tinker"
+
+# mrsk
+alias mrsk="docker run -it --rm -v $PWD:/workdir -v $HOME/.gitconfig:/root/.gitconfig -v $SSH_AUTH_SOCK:/ssh-agent -v /var/run/docker.sock:/var/run/docker.sock -e SSH_AUTH_SOCK=/ssh-agent ghcr.io/99linesofcode/mrsk:latest"
+
+# -----------------------------------------------------------------------------
+# Binds
+# -----------------------------------------------------------------------------
+
+bindkey -e
+# Control + backspace
+bindkey '^H' backward-kill-word
+# Control + arrows
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
