@@ -1,17 +1,12 @@
 {
   "[javascript][typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  },
-  "[json][jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "css.validate": false,
   "debug.allowBreakpointsEverywhere": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": true,
-  "dotfiles.repository": "99linesofcode/dotfiles",
-  "dotfiles.targetPath": "~/dotfiles",
-  "dotfiles.installCommand": "~/dotfiles/install.sh",
+  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorBlinking": "smooth",
   "editor.detectIndentation": false,
@@ -19,75 +14,81 @@
   "editor.formatOnPaste": false,
   "editor.guides.bracketPairs": "active",
   "editor.insertSpaces": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",
   "editor.lineHeight": 30,
-  "explorer.openEditors.visible": 0,
+  "editor.semanticHighlighting.enabled": true,
   "editor.quickSuggestions": {
-    "comments": true,
+    "comments": true
   },
   "editor.quickSuggestionsDelay": 0,
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     80,
     120,
-    160,
+    160
   ],
   "editor.tabSize": 2,
-  "eslint.format.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-  ],
+  "explorer.openEditors.visible": 1,
   "extensions.ignoreRecommendations": true,
   "files.eol": "\n",
   "files.exclude": {
-    ".git": false,
+    ".git": false
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "git.ignoreMissingGitWarning": true,
   "less.validate": false,
   "outline.showProperties": false,
   "outline.showVariables": false,
   "outline.showFunctions": false,
   "scss.validate": false,
   "search.useIgnoreFiles": false,
-  // TODO update when proper support for glob patterns is released
-  // See: https://github.com/microsoft/vscode/issues/134415 and related
-  "search.exclude": {
-    "**/.git/**": true,
-    "**/node_modules/**/node_modules/**": true,
-  },
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.inheritEnv": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "vim.camelCaseMotion.enable": true,
+  "vim.gdefault": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": "<space>",
+  "vim.sneak": true,
+  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  // Extensions
+  "eslint.format.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
   "stylelint.validate": [
     "css",
     "less",
     "postcss",
-    "scss"
+    "scss",
   ],
   "tailwindCSS.emmetCompletions": true,
-  "telemetry.telemetryLevel": "off",
-  "terminal.integrated.inheritEnv": true,
-  "terminal.integrated.defaultProfile.linux": "zsh",
   "todo-tree.tree.autoRefresh": true,
   "todo-tree.highlights.customHighlight": {
     "WARN": {
       "foreground": "#000",
       "background": "#ffc386",
       "iconColour": "#ffc386",
-      "icon": "alert",
+      "icon": "alert"
     },
     "TODO": {
       "foreground": "#000",
       "background": "#f4ff81",
       "iconColour": "#f4ff81",
-      "icon": "check-circle",
+      "icon": "check-circle"
     },
     "FIXME": {
       "foreground": "#000",
       "background": "#ff7f7f",
       "iconColour": "#ff7f7f",
       "icon": "flame"
-    },
+    }
   },
   "todo-tree.highlights.defaultHighlight": {
     "type": "text-and-comment"
@@ -96,16 +97,6 @@
     "TODO",
     "WARN",
     "FIXME",
-    "REVIEW",
-  ],
-  "vim.camelCaseMotion.enable": true,
-  "vim.gdefault": true,
-  "vim.highlightedyank.enable": true,
-  "vim.leader": "<space>",
-  "vim.sneak": true,
-  "workbench.colorTheme": "Hybrid Next (Gray Background)",
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "editor.accessibilitySupport": "off",
-  "git.ignoreMissingGitWarning": true,
+    "REVIEW"
+  ]
 }
