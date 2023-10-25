@@ -1,0 +1,28 @@
+configuration {
+  display-drun: "Applications";
+  display-window: "Windows";
+  drun-display-format: "{name}";
+  font: "Fira Sans SemiBold 11";
+  modi: "window,run,drun";
+  show-icons: true;
+}
+
+@theme "theme.rasi"
+
+window {
+  width: 768px;
+}
+
+element {
+  padding: 6;
+}
+
+element-text selected {
+  text-color: #fff;
+}
+
+prompt, entry {
+  text-color: #fff;
+}
+
+/* vim: ft=sass

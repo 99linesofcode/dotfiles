@@ -1,0 +1,79 @@
+@import "./base16.css";
+
+* {
+  box-shadow: none;
+  border-radius: 3px;
+  color: white;
+  font-family: "FireCode Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sens-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: none;
+  border: none;
+}
+
+#taskbar button,
+#taskbar button:hover {
+  border-radius: 3px;
+  margin: 0 2px;
+  padding: 5px;
+}
+
+#workspaces.horizontal button {
+  padding: 5px 10px;
+}
+
+#workspaces.horizontal button.active,
+#workspaces.horizontal button:hover,
+#taskbar button.active,
+#taskbar button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+}
+
+tooltip,
+#window,
+#backlight,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#custom,
+#dwl,
+#idle_inhibitor,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#wireplumber {
+  background: none;
+  border-radius: 3px;
+  margin: 0 2px;
+  padding: 0 5px;
+}
+
+tooltip,
+.modules-left,
+.modules-center,
+.modules-right {
+  background: #222436;
+  margin: 10px 10px 0;
+  padding: 5px;
+}
+
+@keyframes blink {
+    to {
+        color: white;
+    }
+}
+
+#battery.discharging {
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

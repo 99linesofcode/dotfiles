@@ -1,40 +1,34 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-cd $HOME/dotfiles
-
-if which zsh >/dev/null 2>&1; then
-	sudo chsh -s $(which zsh)
-else
-	echo "Zsh has not been installed yet."
-fi
-
+echo "Making XDG user directories.."
 mkdir -p \
-	$HOME/.config \
-	$HOME/.local/bin \
-	$HOME/.local/share \
-	$HOME/.local/state
+	"$HOME/.local/bin" \
+	"$HOME/.config" \
+	"$HOME/.local/share" \
+	"$HOME/.local/state"
 
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
+if [ ! -e "$HOME/.oh-my-zsh/" ]; then
+	echo "Couldn't find .oh-my-zsh directory. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null 2>&1
-	rm $HOME/.zshrc
+	rm "$HOME/.zshrc"
 fi
 
-ln -sf $PWD/.asdfrc $HOME/.asdfrc
-ln -sf $PWD/.config/nvim $HOME/.config/nvim
-ln -sf $PWD/.gitconfig $HOME/.gitconfig
-ln -sf $PWD/.gitignore_global $HOME/.gitignore_global
-ln -sf $PWD/.ssh $HOME/.ssh
-ln -sf $PWD/.zshrc $HOME/.zshrc
+echo "Creating symbolic links in $HOME and $HOME/.config.."
+for item in .[^.]* .config/*; do
+	if [ "$item" = ".config" ] || [ "$item" = ".git" ]; then
+		continue
+	fi
 
-if [ ! -d "$HOME/.asdf" ]; then
-	git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+	target_filepath="$HOME/$item"
+	ln -sf "$(pwd)/$item" ${target_filepath%/*}
+	echo "$(pwd)/$item" ${target_filepath%/*}
+done
+
+if command -v "php" >/dev/null 2>&1; then
+	if ! command -v "composer" >/dev/null 2>&1; then
+		echo "Couldn't find Composer. Installing.."
+		./scripts/install-composer.sh
+	fi
 fi
 
-source $HOME/.asdf/asdf.sh
-
-if [ ! -d "$HOME/.asdf/shims/nvim" ]; then
-	asdf plugin add neovim https://github.com/richin13/asdf-neovim.git
-	asdf install neovim nightly
-	asdf global neovim nightly
-	ln -sf $HOME/.asdf/shims/nvim $HOME/.local/bin/vim
-fi
+echo "Done!"

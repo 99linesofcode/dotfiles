@@ -3,6 +3,8 @@ export LANG=en_US.UTF-8
 
 # This directory is accidentally omitted on debian based operating systems
 export PATH="$HOME/.local/bin:$PATH"
+# Path used by the Nix functional package manager
+export PATH="$HOME/.nix-profile/bin:$PATH"
 
 # -----------------------------------------------------------------------------
 # (Oh-My-)Zsh
@@ -45,7 +47,7 @@ alias vrc="vim $HOME/dotfiles/.config/nvim/init.lua"
 alias zrc="vim $HOME/dotfiles/.zshrc"
 
 # System defaults
-alias ls="ls -GFh --color=auto"
+alias ls="ls -lAhF --color=auto"
 
 # Git
 alias gl="git sl"
@@ -58,7 +60,7 @@ function gpb() {
   git checkout $TARGET
   git fetch
   git remote prune origin
-  git branch --merged $TARGET | grep -v $TARGET | xargs --no-run-if-empty git branch -d
+  git branch --merged $TARGET | grep -v $TARGET | xargs -r git branch -d
 }
 
 # laravel
@@ -78,3 +80,5 @@ bindkey '^H' backward-kill-word
 # Control + arrows
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
+
+neofetch

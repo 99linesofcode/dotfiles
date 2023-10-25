@@ -56,7 +56,6 @@
   "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  // Extensions
   "eslint.format.enable": true,
   "eslint.validate": [
     "javascript",
@@ -66,7 +65,7 @@
     "css",
     "less",
     "postcss",
-    "scss",
+    "scss"
   ],
   "tailwindCSS.emmetCompletions": true,
   "todo-tree.tree.autoRefresh": true,
