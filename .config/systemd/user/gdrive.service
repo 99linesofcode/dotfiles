@@ -1,1 +1,22 @@
-/home/jordy/dotfiles/systemd/user/gdrive.service
+[Unit]
+Description=rclone: Remote FUSE filesystem for Google Drive
+Documentation=man:rclone(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStartPre=-/usr/bin/mkdir -p %h/Documents/"Google Drive"
+ExecStart= \
+  /usr/bin/rclone mount \
+    --config=%h/.config/rclone/rclone.conf \
+    --vfs-cache-mode writes \
+    --vfs-cache-max-size 100M \
+    --log-level INFO \
+    --log-file /tmp/rclone-gdrive.log \
+    --umask 022 \
+    gdrive: %h/Documents/"Google Drive"
+ExecStop=/bin/fusermount -u %h/Documents/"Google Drive"
+
+[Install]
+WantedBy=default.target
