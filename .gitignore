@@ -1,5 +1,5 @@
-packer_compiled.lua
-
 .ssh/*
 !.ssh/config
+
+.config/vifm/vifminfo.json
 
