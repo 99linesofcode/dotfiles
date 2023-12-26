@@ -17,7 +17,7 @@
   editor = vim
   excludesfile = ~/dotfiles/.gitignore_global
   eol = lf
-  autocrlf = input
+	autocrlf = false
 [fetch]
   prune = true
 [branch]
