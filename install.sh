@@ -9,7 +9,7 @@ mkdir -p \
 
 if [ ! -e "$HOME/.oh-my-zsh/" ]; then
 	echo "Couldn't find .oh-my-zsh directory. Installing.."
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" >/dev/null 2>&1
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm "$HOME/.zshrc"
 fi
 
