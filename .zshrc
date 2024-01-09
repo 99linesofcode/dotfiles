@@ -67,11 +67,11 @@ function gpb() {
 alias a="artisan"
 alias tinker="artisan tinker"
 
-# mrsk
-alias mrsk="docker run -it --rm -v $PWD:/workdir -v $HOME/.gitconfig:/root/.gitconfig -v $SSH_AUTH_SOCK:/ssh-agent -v /var/run/docker.sock:/var/run/docker.sock -e SSH_AUTH_SOCK=/ssh-agent ghcr.io/99linesofcode/mrsk:latest"
+# kamal
+alias kamal='docker run -it --rm -v "${PWD}:/workdir" -v "${SSH_AUTH_SOCK}:/ssh-agent" -v /var/run/docker.sock:/var/run/docker.sock -e "SSH_AUTH_SOCK=/ssh-agent" ghcr.io/basecamp/kamal:latest'
 
 # -----------------------------------------------------------------------------
-# Binds
+# Keybinds
 # -----------------------------------------------------------------------------
 
 bindkey -e

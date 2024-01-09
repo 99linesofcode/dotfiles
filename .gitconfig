@@ -28,6 +28,4 @@
   submodule = log
 [init]
   defaultBranch = main
-[safe]
-  # mrsk
-  directory = /workdir
+
