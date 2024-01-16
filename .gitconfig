@@ -1,6 +1,7 @@
 [user]
   name = Jordy Schreuders
   email = 3071062+99linesofcode@users.noreply.github.com
+	signingkey = 58705EA591DEFD3DCB206CD3577DA08F32CCD9E2
 [pull]
   default = current
   rebase = true
@@ -28,4 +29,5 @@
   submodule = log
 [init]
   defaultBranch = main
-
+[commit]
+	gpgsign = true

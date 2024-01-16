@@ -26,6 +26,7 @@ plugins=(
   laravel
   rails
   ssh-agent
+  gpg-agent
 )
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
