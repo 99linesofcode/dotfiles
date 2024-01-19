@@ -1,7 +1,7 @@
 [user]
   name = Jordy Schreuders
   email = 3071062+99linesofcode@users.noreply.github.com
-	signingkey = 58705EA591DEFD3DCB206CD3577DA08F32CCD9E2
+	signingkey = 7A01589FFEB708DC2854FC66E7B1882EB1BBD23B
 [pull]
   default = current
   rebase = true
