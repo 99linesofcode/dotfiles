@@ -25,14 +25,14 @@ plugins=(
   history
   laravel
   rails
-  ssh-agent
+  keychain
   gpg-agent
 )
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
 
-
-zstyle :omz:plugins:ssh-agent identities blade_github_ed25519 blade_gitlab_ed25519 blade_strato_ed25519
+zstyle :omz:plugins:keychain agents gpg,ssh
+zstyle :omz:plugins:keychain identities blade_github_ed25519 blade_gitlab_ed25519 blade_strato_ed25519
 
 # -----------------------------------------------------------------------------
 # Post Setup
