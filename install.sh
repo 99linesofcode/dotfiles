@@ -15,7 +15,7 @@ for program in "curl git"; do
 done
 
 if [ ! -e $ZSH_CUSTOM ]; then
-	echo "Couldn't find .oh-my-zsh. Installing.."
+	echo "Couldn't find Oh-My-Zsh. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm "$HOME/.zshrc"
 
@@ -23,6 +23,11 @@ if [ ! -e $ZSH_CUSTOM ]; then
 	git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 	git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM}/plugins/F-Sy-H
+fi
+
+if [ ! -e $ASDF_DIR ]; then
+	echo "Couldn't find Asdf. Installing.."
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
 echo "Creating symbolic links in $HOME and $HOME/.config.."
