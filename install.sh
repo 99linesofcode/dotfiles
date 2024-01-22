@@ -30,6 +30,21 @@ if [ ! -e $ASDF_DIR ]; then
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 fi
 
+if ! command -v "nvim" >/dev/null 2>&1; then
+	echo "Couldn't find Neovim. Installing.."
+
+	if [ -z $ASDF_DIR ]; then
+		export ASDF_DIR="$HOME/.asdf"
+	fi
+
+	. $HOME/.asdf/asdf.sh
+	asdf plugin add neovim
+	asdf install neovim stable
+	asdf global neovim stable
+	ln -sf $(which nvim) $HOME/.local/bin/vi
+	ln -sf $(which nvim) $HOME/.local/bin/vim
+fi
+
 echo "Creating symbolic links in $HOME and $HOME/.config.."
 for item in .[^.]* .config/*; do
 	if [ "$item" = ".config" ] || [ "$item" = ".git" ]; then
