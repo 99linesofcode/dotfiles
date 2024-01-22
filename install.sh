@@ -7,6 +7,13 @@ mkdir -p \
 	"$HOME/.local/share" \
 	"$HOME/.local/state"
 
+for program in "curl git"; do
+	if ! command -v $program >/dev/null 2>&1; then
+		echo "$program not found. Please make sure it is installed before continuing.."
+		exit 1
+	fi
+done
+
 if [ ! -e $ZSH_CUSTOM ]; then
 	echo "Couldn't find .oh-my-zsh. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
