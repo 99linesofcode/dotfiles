@@ -36,11 +36,4 @@ for item in .[^.]* .config/*; do
 	echo "$(pwd)/$item" ${target_filepath%/*}
 done
 
-if command -v "php" >/dev/null 2>&1; then
-	if ! command -v "composer" >/dev/null 2>&1; then
-		echo "Couldn't find Composer. Installing.."
-		./scripts/install-composer.sh
-	fi
-fi
-
 echo "Done!"
