@@ -21,12 +21,15 @@ plugins=(
   composer
   docker
   docker-compose
+  F-Sy-H
   git
   history
   laravel
   rails
   keychain
   gpg-agent
+  zsh-autocomplete
+  zsh-autosuggestions
 )
 ZSH_THEME=juanghurtado
 COMPLETION_WAITING_DOTS="true"
