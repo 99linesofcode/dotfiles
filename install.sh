@@ -7,10 +7,15 @@ mkdir -p \
 	"$HOME/.local/share" \
 	"$HOME/.local/state"
 
-if [ ! -e "$HOME/.oh-my-zsh/" ]; then
-	echo "Couldn't find .oh-my-zsh directory. Installing.."
+if [ ! -e $ZSH_CUSTOM ]; then
+	echo "Couldn't find .oh-my-zsh. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm "$HOME/.zshrc"
+
+	echo "Installing Zsh plugins.."
+	git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+	git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+	git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM}/plugins/F-Sy-H
 fi
 
 echo "Creating symbolic links in $HOME and $HOME/.config.."
