@@ -2,10 +2,10 @@
 
 echo "Making XDG user directories.."
 mkdir -p \
-	"$HOME/.local/bin" \
-	"$HOME/.config" \
-	"$HOME/.local/share" \
-	"$HOME/.local/state"
+	$HOME/.local/bin \
+	$HOME/.config \
+	$HOME/.local/share \
+	$HOME/.local/state
 
 for program in "curl git"; do
 	if ! command -v $program >/dev/null 2>&1; then
@@ -14,15 +14,15 @@ for program in "curl git"; do
 	fi
 done
 
-if [ -z $ZSH_CUSTOM ]; then
+if [ -z ${ZSH_CUSTOM:="${HOME}/.oh-my-zsh"} ]; then
 	echo "Couldn't find Oh-My-Zsh. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	rm "$HOME/.zshrc"
+	rm "${HOME}/.zshrc"
 
 	echo "Installing Zsh plugins.."
 	git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 	git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-	git clone https://github.com/z-shell/F-Sy-H.git ${ZSH_CUSTOM}/plugins/F-Sy-H
+	git clone https://github.com/z-shell/F-Sy-H.git $ZSH_CUSTOM/plugins/F-Sy-H
 fi
 
 if [ ! -e $ASDF_DIR ]; then
