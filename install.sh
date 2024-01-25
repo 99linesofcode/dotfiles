@@ -14,7 +14,7 @@ for program in "curl git"; do
 	fi
 done
 
-if [ ! -e $ZSH_CUSTOM ]; then
+if [ -z $ZSH_CUSTOM ]; then
 	echo "Couldn't find Oh-My-Zsh. Installing.."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm "$HOME/.zshrc"
@@ -52,6 +52,12 @@ for item in .[^.]* .config/*; do
 	fi
 
 	target_filepath="$HOME/$item"
+
+	if [ ! -L target_filepath ] || [ ! -e target_filepath ]; then
+		echo "$target_filepath symbolic link already exists. Skipped."
+		continue
+	fi
+
 	ln -sf "$(pwd)/$item" ${target_filepath%/*}
 	echo "$(pwd)/$item" ${target_filepath%/*}
 done
