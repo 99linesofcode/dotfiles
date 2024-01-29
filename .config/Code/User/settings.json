@@ -39,6 +39,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.ignoreMissingGitWarning": true,
+  "keyboard.dispatch": "keyCode",
   "less.validate": false,
   "outline.showProperties": false,
   "outline.showVariables": false,
