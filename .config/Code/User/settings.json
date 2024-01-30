@@ -93,5 +93,8 @@
     "WARN",
     "FIXME",
     "REVIEW"
-  ]
+  ],
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  }
 }
