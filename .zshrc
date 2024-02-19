@@ -43,6 +43,9 @@ zstyle :omz:plugins:keychain identities blade_github_ed25519 blade_gitlab_ed2551
 
 source $ZSH/oh-my-zsh.sh
 
+# Setup zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 # -----------------------------------------------------------------------------
 # Aliases
 # -----------------------------------------------------------------------------
