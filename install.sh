@@ -46,9 +46,9 @@ if ! command -v "nvim" >/dev/null 2>&1; then
 	ln -sf $(which nvim) "${HOME}/.local/bin/vim"
 fi
 
-echo "Creating symbolic links in ${HOME} and ${HOME}/.config.."
-for item in .[^.]* .config/*; do
-	if [ "$item" = ".config" ] || [ "$item" = ".git" ]; then
+echo "Creating symbolic links in ${HOME}, ${HOME}/.config, ${HOME}/.local/share"
+for item in .[^.]* .config/* .local/share/*; do
+	if [ "$item" = ".local" ] || [ "$item" = ".config" ] || [ "$item" = ".git" ]; then
 		continue
 	fi
 
