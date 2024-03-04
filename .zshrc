@@ -62,12 +62,10 @@ alias gfix="git fix"
 
 # function to automatically prune branches both locally and remote
 function gpb() {
-  local TARGET=${1-"main"}
-
-  git checkout $TARGET
+  git checkout "$(git_main_branch)"
   git fetch
   git remote prune origin
-  git branch --merged $TARGET | grep -v $TARGET | xargs -r git branch -d
+  git branch --merged | grep -vE "$(git_main_branch)|$(git_develop_branch)" | xargs -r git branch -d
 }
 
 # laravel
