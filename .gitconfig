@@ -1,7 +1,7 @@
 [user]
   name = Jordy Schreuders
   email = 3071062+99linesofcode@users.noreply.github.com
-  signingkey = /home/jordy/.ssh/blade_github_ed25519.pub
+  signingkey = ~/.ssh/blade_github_ed25519.pub
 [pull]
   default = current
   rebase = true
