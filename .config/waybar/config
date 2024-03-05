@@ -84,13 +84,13 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%  {format_source}",
-        "format-muted": "  {format_source} ",
+        "format-muted": " off  {format_source}",
         "format-source": " on",
         "format-source-muted": " off",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
             "phone": "",
             "portable": "",
             "car": "",
