@@ -71,7 +71,8 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
-        }
+        },
+        "on-click": "hyprshade toggle"
     },
 
     "cpu": {
