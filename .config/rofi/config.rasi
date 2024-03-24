@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications";
   display-window: "Windows";
   drun-display-format: "{name}";
-  font: "NotoMono Nerd Font 10";
+  font: "monospace 10";
   modi: "window,run,drun";
   show-icons: true;
 }
