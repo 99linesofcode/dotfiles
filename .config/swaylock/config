@@ -1,5 +1,5 @@
 ignore-empty-password
-font="NotoSans Nerd Font"
+font="sans-serif"
 
 clock
 timestr=%R

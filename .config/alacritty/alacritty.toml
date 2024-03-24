@@ -34,8 +34,8 @@ foreground = "0xc8d3f5"
 size = 10.0
 
 [font.normal]
-family = "NotoMono Nerd Font"
-style = "Mono"
+family = "monospace"
+style = "monospace"
 
 [window]
 opacity = 1.0
