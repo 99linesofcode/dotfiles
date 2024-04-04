@@ -37,6 +37,9 @@ size = 10.0
 family = "monospace"
 style = "monospace"
 
+[scrolling]
+multiplier = 20
+
 [window]
 opacity = 1.0
 
