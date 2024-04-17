@@ -1,10 +1,12 @@
 .ssh/*
 !.ssh/config
 
+.config/btop/
+
 .config/Code/*
 !.config/Code/User/keybindings.json
 !.config/Code/User/settings.json
 
-.config/vifm/vifminfo.json
 .config/nvim/lazy-lock.json
-
+.config/vifm/vifminfo.json
+.festivalrc
