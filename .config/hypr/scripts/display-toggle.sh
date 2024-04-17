@@ -16,17 +16,17 @@ Primary)
 	sed -i 's/DISPLAY_STATE=Primary/DISPLAY_STATE=Secondary/' $FILEPATH
 	hyprctl keyword monitor "$1,highres,0x0,2"
 	hyprctl keyword monitor "$2,disable"
-	notify-send -t 3000 -i video-display "Laptop screen only"
+	notify-send -i video-display "Laptop screen only"
 	;;
 Secondary)
 	sed -i 's/DISPLAY_STATE=Secondary/DISPLAY_STATE=Extend/' $FILEPATH
 	hyprctl keyword monitor "$2,preferred,auto,2"
 	hyprctl keyword monitor "$1,disable"
-	notify-send -t 3000 -i video-display "Second screen only"
+	notify-send -i video-display "Second screen only"
 	;;
 Extend)
 	sed -i 's/DISPLAY_STATE=Extend/DISPLAY_STATE=Primary/' $FILEPATH
 	hyprctl keyword monitor "$1,highres,0x0,2"
-	notify-send -t 3000 -i video-display "Extend screens"
+	notify-send -i video-display "Extend screens"
 	;;
 esac
