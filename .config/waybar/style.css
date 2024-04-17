@@ -9,47 +9,33 @@
   min-height: 0;
 }
 
-window#waybar {
-  background: none;
-  border: none;
-}
-
-#taskbar button,
-#taskbar button:hover {
-  border-radius: 3px;
-  margin: 0 2px;
-  padding: 5px;
-}
-
-#workspaces.horizontal button {
-  padding: 5px 10px;
-}
 
 #workspaces.horizontal button.active,
 #workspaces.horizontal button:hover,
 #taskbar button.active,
 #taskbar button:hover {
   background: rgba(255, 255, 255, 0.3);
-  border: 1px solid transparent;
 }
 
-tooltip,
+window#waybar {
+  background: none;
+  border: none;
+}
+
 #window,
+#idle_inhibitor,
+#cpu,
+#memory,
+#pulseaudio,
+#wireplumber
+#network,
+#bluetooth,
 #backlight,
 #battery,
-#bluetooth,
 #clock,
-#cpu,
-#custom,
-#dwl,
-#idle_inhibitor,
-#memory,
-#network,
-#pulseaudio,
 #tray,
-#wireplumber {
+tooltip {
   background: none;
-  border-radius: 3px;
   margin: 0 2px;
   padding: 0 5px;
 }
@@ -72,7 +58,7 @@ tooltip,
 #battery.discharging {
     color: #f53c3c;
     animation-name: blink;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
