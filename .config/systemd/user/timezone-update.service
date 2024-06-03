@@ -1,0 +1,12 @@
+[Unit]
+Description=timedatectl: update system timezone information
+Documentation=man:timedatectl(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c 'timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"'
+
+[Install]
+WantedBy=default.target
